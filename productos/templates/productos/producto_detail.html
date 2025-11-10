@@ -1,0 +1,15 @@
+{% extends 'productos/base.html' %}
+{% block title %}{{ producto.nombre }} - AgroVenta{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-5">
+    <img src="{{ producto.imagen.url }}" class="img-fluid rounded" alt="{{ producto.nombre }}">
+  </div>
+  <div class="col-md-7">
+    <h2>{{ producto.nombre }}</h2>
+    <p>{{ producto.descripcion }}</p>
+    <h4>${{ producto.precio }}</h4>
+    <button class="btn btn-success">Simular Compra</button>
+  </div>
+</div>
+{% endblock %}

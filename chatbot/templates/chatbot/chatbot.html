@@ -1,0 +1,31 @@
+{% extends 'productos/base.html' %}
+{% load static %}
+{% block title %}Chatbot - AgroVenta{% endblock %}
+{% block content %}
+<h2 class="text-center mb-3">Asistente Virtual AgroVenta 🤖</h2>
+<div class="card mx-auto" style="max-width: 600px;">
+  <div class="card-body">
+    <div id="chatbox" class="border rounded p-3 mb-3" style="height:300px; overflow-y:auto;"></div>
+    <div class="input-group">
+      <input type="text" id="userInput" class="form-control" placeholder="Escribe tu pregunta...">
+      <button class="btn btn-primary" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>
+<script>
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const chatbox = document.getElementById("chatbox");
+  const userText = input.value.trim();
+  if (!userText) return;
+  chatbox.innerHTML += `<p><strong>Tú:</strong> ${userText}</p>`;
+  let response = "No entendí eso, pero puedo ayudarte con productos o precios.";
+  if (userText.toLowerCase().includes("precio")) response = "Nuestros precios varían según la categoría.";
+  if (userText.toLowerCase().includes("acuícola")) response = "Tenemos camarones, tilapias y más.";
+  if (userText.toLowerCase().includes("ganadero")) response = "Vendemos leche, queso y carne fresca.";
+  chatbox.innerHTML += `<p><strong>Chatbot:</strong> ${response}</p>`;
+  input.value = "";
+  chatbox.scrollTop = chatbox.scrollHeight;
+}
+</script>
+{% endblock %}
