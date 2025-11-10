@@ -1,0 +1,26 @@
+# Entorno virtual
+venv/
+env/
+
+# Base de datos SQLite
+db.sqlite3
+
+# Archivos compilados y cache
+__pycache__/
+*.pyc
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Migraciones compiladas
+**/migrations/__pycache__/
+**/migrations/*.pyc
+
+# Carpetas generadas
+staticfiles/
+media/
+
+# Archivos de configuración local
+*.env
+.env
